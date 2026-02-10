@@ -1,0 +1,13 @@
+@media screen and (max-width:512px) {
+    .navbar-brand-div {
+        width: 75% !important;
+    }   
+}
+
+.navbar-brand img {
+    width: 70%;
+}
+
+.boton-align {
+    flex-direction: row-reverse;
+}

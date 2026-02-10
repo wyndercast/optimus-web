@@ -1,0 +1,149 @@
+<!-- Start Navbar Area -->
+<div
+    class="navbar-area"
+    [ngClass]="{'bg-white': !router?.url.includes('/valuekeep-software-mantenimiento') && !router?.url.includes('/webinar-valuekeep')}"
+>
+    <div class="{{location == '/' ? 'crimo-nav' : 'crimo-nav navbar-style-two'}}">
+        <div class="{{location == '/' ? 'container-fluid' : 'container'}}">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="navbar-brand-div">
+                    <a class="navbar-brand">
+                    <img src="assets/img/black-logo.png" alt="logo">
+                    </a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="{{router?.url.includes('/valuekeep-software-mantenimiento') && !router?.url.includes('/webinar-valuekeep') ? 'boton-align':''}} collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav" *ngIf="!router?.url.includes('/valuekeep-software-mantenimiento') && !router?.url.includes('/webinar-valuekeep')">
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Inicio <i class="fas fa-chevron-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/" routerLinkActive="active" class="nav-link">IT Startups</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/index-2" routerLinkActive="active" class="nav-link">IT Company</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/valuekeep-software-mantenimiento" routerLinkActive="active" class="nav-link">IT Services</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/index-4" routerLinkActive="active" class="nav-link">IT Solutions</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Pages <i class="fas fa-chevron-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/about" routerLinkActive="active" class="nav-link">About Us</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/team" routerLinkActive="active" class="nav-link">Team</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/not-found" routerLinkActive="active" class="nav-link">404 Error</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/coming-soon" routerLinkActive="active" class="nav-link">Coming Soon</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/faq" routerLinkActive="active" class="nav-link">FAQ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Proyectos <i class="fas fa-chevron-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/projects" routerLinkActive="active" class="nav-link">Projects</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a routerLink="/project-details" routerLinkActive="active" class="nav-link">Projects Details</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                Servicios <i class="fas fa-chevron-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/service-details/develop-integrations" routerLinkActive="active" class="nav-link">Desarrollo de Integraciones</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/service-details/software-maintenance" routerLinkActive="active" class="nav-link">Software de Mantenimiento</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/service-details/consulting" routerLinkActive="active" class="nav-link">Consultoria IT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/service-details/develop-app-web" routerLinkActive="active" class="nav-link">Desarrollo de Aplicaciones Web</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/service-details/develop-app-mobile" routerLinkActive="active" class="nav-link">Desarrollo Mobile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/service-details/data-analitycs-and-machine-learning" routerLinkActive="active" class="nav-link">Analitica de datos / Machine learning</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" routerLink="/coming-soon" routerLinkActive="active" >
+                                Blog
+                            </a>
+
+                            
+                        </li>
+                    </ul>
+
+                    <div class="others-options">
+                        <div class="option-item" *ngIf="router?.url == '/' || router?.url == '/index-2' || router?.url == '/index-4'">
+                            <i class="search-btn flaticon-search"></i>
+                            <i class="close-btn fas fa-times"></i>
+
+                            <div class="search-overlay search-popup">
+                                <div class='search-box'>
+                                    <form class="search-form">
+                                        <input class="search-input" name="search" placeholder="Search" type="text">
+                                        <button class="search-button" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <button *ngIf="router?.url.includes('/valuekeep-software-mantenimiento')" (click)="topScroll('#form')" class="btn btn-primary">Solicita tu Demo</button>
+                        <a *ngIf="!router?.url.includes('/valuekeep-software-mantenimiento') && !router?.url.includes('/webinar-valuekeep')" routerLink="contact" class="btn btn-primary">Contactanos</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- End Navbar Area -->

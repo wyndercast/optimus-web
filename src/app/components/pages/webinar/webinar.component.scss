@@ -1,0 +1,201 @@
+.about-wrap-image{
+    height: 100%;
+    position: relative;
+    text-align: center;
+    background: {
+        image: url(/assets/img/cegid.png);
+        position: center center;
+        size: cover;
+        repeat: no-repeat;
+    }
+   
+    .video-btn {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: inline-block;
+        margin: 0 auto;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+        background-color: var(--mainColor);
+        border-radius: 50%;
+        color: var(--whiteColor);
+        z-index: 1;
+
+        i {
+            &::before {
+                font-size: 38px;
+            }
+        }
+        &::after, &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            bottom: 0;
+            left: 0;
+            border-radius: 50%;
+            border: 1px solid var(--mainColor);
+        }
+        &::before {
+            animation: ripple 2s linear infinite
+        }
+        &::after {
+            animation: ripple 2s linear 1s infinite
+        }
+        &:hover, &:focus {
+            background-color: var(--optionalColor);
+            color: var(--whiteColor);
+        }
+    }
+}
+
+::ng-deep .ipv_selected-item{
+    height: auto;
+    border: 0px;
+}
+
+.image-valuekeep{
+    animation-name: valuekeep;
+    animation-duration: 4s;
+    animation-delay: -2s;
+}
+@keyframes valuekeep {
+    0%  {background-color:blue; left:200px; top:0px;}
+    50%  {background-color:green; left:0px; top:0;}
+    100% {background-color:red; left:0px; top:0px;}
+  }
+.grid-panel{
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+.faq-wrap-area {
+    background-color: #ebfedd;
+    overflow: hidden;
+
+    .section-title-style-two {
+        .content {
+            span {
+                color: var(--eggBlueColor);
+            }
+        }
+    }
+
+}
+.subscribe-wrap-area-three {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ebfedd;
+        z-index: -1;
+        width: 100%;
+        height: 120px;
+    }
+}
+
+.funfacts-style-wrap-inner-box-three {
+    background: linear-gradient(to bottom, #f3f7ea, #f1f5e8, #e8f9cf, #f2f9d1, #e7f7cb);
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    margin-top: 70px;
+    padding: {
+        left: 50px;
+        right: 50px;
+    };
+}
+.partner-area {
+    &.bg-with-gradient-color {
+        background-image: linear-gradient(to bottom, #f3f7ea, #f1f5e8, #e8f9cf, #f2f9d1, #e7f7cb);
+        padding: {
+            top: 100px;
+            bottom: 60px;
+        };
+    }
+}
+::ng-deep .modal-overlay{
+    background-color: rgba($color: #000000, $alpha: 0.4);
+}
+.container-form{
+    padding: 34px;
+    background: #dddfcd;
+    border-radius: 12px;
+}
+.title-landing h1{
+    font-size: 40px;
+}
+
+form input{
+    border-radius: 4px;
+}
+form select {
+    border-radius: 4px;
+}
+form textarea{
+    border-radius: 4px;
+}
+.btn-form{
+    font-size: 20px !important;
+}
+.text-landing{
+    font-size: 16px;
+}
+
+.partner {
+    padding-top: 21px;
+}
+
+.single-funfacts h3 {
+    font-size: 13px;
+}
+.features-style-card::before{
+    right: -10px;
+}
+
+.features-style-card .icon i::before {
+    font-size: 45px;
+  }
+
+.features-style-card .icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    top: 30px;
+    left: 20px;
+    line-height: 70px;
+    border-radius: 50%;
+    color: var(--mainColor);
+    background-color: #f0f0f0;
+    text-align: center;
+    transition: var(--transition);
+  }
+  
+@media screen and (max-width: 512px){
+    .container-form{
+        padding: 25px;
+    }
+    .title-landing h1{
+        font-size: 29px;
+    }
+    .it-services-banner-content{
+        text-align: center;
+    }
+    .partner{
+        padding-top: 11px;
+    }
+
+    
+}

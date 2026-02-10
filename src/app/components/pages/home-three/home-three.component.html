@@ -1,0 +1,775 @@
+<!-- Start IT Services Banner Area -->
+<div class="it-services-banner-area">
+    <img src="assets/img/it-services-home/it-services-bg.webp" alt="" width="0" height="0" style="display: none !important;" />
+    <div class="container" id="form">
+        <div class="row align-items-center">
+            <div class="col-lg-8 col-md-12">
+                <div class="it-services-banner-content title-landing">
+                    <h1>Revoluciona tu Mantenimiento</h1>
+                    <p *ngIf="mobile" class="text-landing">La solucion definitiva de software de gestión de mantenimiento y activos (CMMS).</p>
+                    <p *ngIf="!mobile" class="text-landing">La solucion definitiva de software de gestión de mantenimiento y activos (CMMS) que ayuda a las empresas a organizar y optimizar sus operaciones de mantenimiento. Permite a las organizaciones gestionar el ciclo de vida de sus activos, programar tareas de mantenimiento, gestionar inventarios y mejorar la eficiencia operativa.</p>
+                    <div class="col-lg-10 col-md-12">
+                        <div class="about-wrap-image">
+                            <img style="position: relative;" src="assets/img/it-services-home/cegid.webp" alt="image">
+                            <a aria-label="Video Presentación Valuekeep" href="https://www.youtube.com/watch?v=ggx-C2OStRA" class="video-btn popup-youtube"><i class="flaticon-play-button"></i></a>
+                        </div>
+                    </div>
+                    <img alt="image" loading="lazy" class="partner" src="assets/img/it-services-home/cegid_partner.png" width="25%">
+                    <img alt="image" loading="lazy" src="assets/img/it-services-home/partner.png" width="29%">
+                    <div class="btn-box">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-12">
+                <div class="contact-form container-form">
+                    <h4>¡Solicita una demostración Gratis!</h4>
+                    <br>
+                    <form id="contactForm" [formGroup]="formGroup" (submit)="salvarDatos()">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group mb-3">
+                                    <input type="text" name="name" id="name" formControlName="nombre" class="form-control" placeholder="Nombre"
+                                    [ngClass]="{ 'is-invalid': submitted && f['nombre'].errors }">
+                                    @if (submitted && f['nombre'].errors) {
+                                        <div class="invalid-feedback">
+                                            @if (f['nombre'].errors['required']) {
+                                            <div>Nombre es requerido</div>
+                                            }
+                                        </div>
+                                        }
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group mb-3">
+                                    <input type="text" name="last-name" id="last-name" formControlName="apellido" class="form-control" placeholder="Apellido">
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group mb-3">
+                                    <input type="email" name="email" id="email" formControlName="email" class="form-control" placeholder="Correo Electrónico"
+                                    [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                                    @if (submitted && f['email'].errors) {
+                                        <div class="invalid-feedback">
+                                            @if (f['email'].errors['required']) {
+                                            <div>Correo electrónico es requerido</div>
+                                            }
+                                        </div>
+                                        }
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group mb-3">
+                                    <input type="text" name="empresa" id="empresa" formControlName="empresa" class="form-control" placeholder="Compañia"
+                                    [ngClass]="{ 'is-invalid': submitted && f['empresa'].errors }">
+                                    @if (submitted && f['empresa'].errors) {
+                                        <div class="invalid-feedback">
+                                            @if (f['empresa'].errors['required']) {
+                                            <div>Nombre de la compañia es requerido</div>
+                                            }
+                                        </div>
+                                        }
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-5 col-md-6" style="padding-left: 7px;padding-right: 7px;">
+                                <div class="form-group mb-3">
+                                    <lib-country-list (onCountryChange)="onCountryChange($event)" class="form-control" [selectedCountryConfig]="selectedCountryConfig" [countryListConfig]="countryListConfig"
+                                    [allowedCountryCodes]="allowedCountryCodes" selectedCountryCode="mx"></lib-country-list>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-6" style="padding-left: 7px;padding-right: 7px;">
+                                <div class="form-group mb-3">
+                                    <input type="text" name="phone_number" formControlName="telefono" id="phone_number" class="form-control" placeholder="Número de Teléfono"
+                                    [ngClass]="{ 'is-invalid': submitted && f['telefono'].errors }">
+                                    @if (submitted && f['telefono'].errors) {
+                                        <div class="invalid-feedback">
+                                            @if (f['telefono'].errors['required']) {
+                                            <div>Telefono es requerido</div>
+                                            }
+                                        </div>
+                                        }
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group mb-3">
+                                    <select aria-label="Pais" name="country" id="country" class="form-control form-select" formControlName="pais"
+                                    [ngClass]="{ 'is-invalid': submitted && f['pais'].errors }">
+                                        <option value="" disabled selected>País</option>
+                                        <option value="Mexíco">Mexíco</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Ecuador">Ecuador</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Paraguay">Paraguay</option>
+                                        <option value="Uruguay">Uruguay</option>
+                                        <option value="España">España</option>
+                                    </select>
+                                    @if (submitted && f['pais'].errors) {
+                                        <div class="invalid-feedback">
+                                            @if (f['pais'].errors['required']) {
+                                            <div>Selecciona un país</div>
+                                            }
+                                        </div>
+                                        }
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group mb-3">
+                                    <select aria-label="Cargo" name="rol" id="rol" class="form-control form-select" formControlName="rol"
+                                    [ngClass]="{ 'is-invalid': submitted && f['rol'].errors }">
+                                        <option value="" disabled selected>Cargo</option>
+                                        <option value="Gerente General">Gerente General</option>
+                                        <option value="Supervisor o Jefe de Mantenimiento">Supervisor o Jefe de Mantenimiento</option>
+                                        <option value="Técnico">Técnico</option>
+                                        <option value="Planificador de Mantenimiento">Planificador de Mantenimiento</option>
+                                        <option value="Estudiante">Estudiante</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    @if (submitted && f['rol'].errors) {
+                                        <div class="invalid-feedback">
+                                            @if (f['rol'].errors['required']) {
+                                            <div>Selecciona un cargo</div>
+                                            }
+                                        </div>
+                                        }
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group mb-3">
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="5" formControlName="observaciones"
+                                    placeholder="Cuentanos tu necesidad"></textarea>
+                                </div>
+                            </div>
+
+                                <button type="submit" class="btn btn-primary btn-form">Enviar</button>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End IT Services Banner Area -->
+
+<!-- Start Features Style Area -->
+<div class="features-style-area">
+    <div class="container">
+        <div class="features-style-inner-box">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="features-style-card text-center">
+                        <div class="features-image">
+                            <img loading="lazy" src="assets/img/it-services-home/improve.png" alt="image">
+                        </div>
+                        <div class="features-content">
+                            <h3>Aumento de la Eficiencia Operativa</h3>
+                            <p>Programación y asignación eficiente de tareas de mantenimiento para mejorar la productividad.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="features-style-card text-center">
+                        <div class="features-image">
+                            <img loading="lazy" src="assets/img/it-services-home/facility.png" alt="image">
+                        </div>
+                        <div class="features-content">
+                            <h3>Gestión de Activos en la Nube</h3>
+                            <p>Mejora la gestión de activos al proporcionar una visión centralizada de todos los equipos e instalaciones.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="features-style-card text-center">
+                        <div class="features-image">
+                            <img loading="lazy" src="assets/img/it-services-home/smartphone.png" alt="image">
+                        </div>
+                        <div class="features-content">
+                            <h3>Aplicaciones Mobiles</h3>
+                            <p>Registra fácilmente datos y observaciones directamente desde el lugar de trabajo.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Features Style Area -->
+
+<!-- Start About Wrap Area -->
+<div class="about-wrap-area pt-110 pb-110">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="about-wrap-image">
+                    <img loading="lazy" src="assets/img/it-services-home/cegid-dos.png" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="about-wrap-content">
+                    <span>SOLUCIÓN</span>
+                    <h3>Optimiza tu Gestión de Mantenimiento con un Software GMAO</h3>
+                    <p>En el mundo empresarial actual, la eficiencia en la gestión de mantenimiento es esencial para garantizar la operación sin problemas de tus activos. Presentamos nuestro innovador Software de Mantenimiento GMAO, diseñado para elevar la gestión de activos a un nuevo nivel.</p>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-sm-6">
+                            <ul class="wrap-list">
+                                <li><i class="fa-solid fa-check-double"></i> Plataforma Integral de Mantenimiento</li>
+                                <li><i class="fa-solid fa-check-double"></i> Mantenimiento Preventivo y Corrrectivo</li>
+                                <li><i class="fa-solid fa-check-double"></i> Gestión de Activos Simplificada</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <ul class="wrap-list">
+                                <li><i class="fa-solid fa-check-double"></i> Movilidad y Acceso Remoto</li>
+                                <li><i class="fa-solid fa-check-double"></i> Integración con Sistemas Existentes</li>
+                                <li><i class="fa-solid fa-check-double"></i> Órdenes de Trabajo Eficientes:</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="about-btn">
+                        <button (click)="topScroll('#form')" class="btn btn-primary">Solicita tu Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End About Wrap Area -->
+
+<!-- Start Choose Wrap Area -->
+<div class="choose-wrap-area pb-110">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="choose-wrap-content">
+                    <span>BENEFICIOS</span>
+                    <h3>Descubre cómo el Software GMAO puede transformar tu gestión de mantenimiento</h3>
+                    <p>Simplifica las operaciones diarias de mantenimiento, consiguiendo un impacto positivo en la eficiencia, la rentabilidad y la sostenibilidad a largo plazo de tu organización.</p>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-sm-6">
+                            <ul class="wrap-list">
+                                <li><i class="fa-solid fa-check-double"></i> Maximiza la disponibilidad de activos</li>
+                                <li><i class="fa-solid fa-check-double"></i> Minimiza los costos de mantenimiento</li>
+                                <li><i class="fa-solid fa-check-double"></i> Aumenta la eficiencia operativa</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <ul class="wrap-list">
+                                <li><i class="fa-solid fa-check-double"></i> Mejora de la Satisfacción del Cliente</li>
+                                <li><i class="fa-solid fa-check-double"></i> Mejora de la Planificación a Largo Plazo</li>
+                                <li><i class="fa-solid fa-check-double"></i> Mejora la toma de decisiones estratégicas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="choose-btn">
+                        <button (click)="topScroll('#form')" class="btn btn-primary">Solicita tu Demo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="choose-wrap-image">
+                    <img loading="lazy" src="assets/img/it-services-home/valuekeep-mobile1.png" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Choose Wrap Area -->
+
+<!-- Start Services Wrap Area -->
+<div class="services-wrap-area pt-110">
+    <div class="container">
+        <div class="section-title-style-two text-center">
+            <div class="content">
+                <span>OTRAS CARACTERISTICAS</span>
+                <h2>Descubre las Ventajas y Oportunidades de Valuekeep</h2>
+            </div>
+
+            <div class="text">
+                <p>Transforma tu Gestión de Mantenimiento para obtener beneficios concretos y específicos para tu organización.</p>
+            </div>
+            <div class="text">
+                <button (click)="topScroll('#form')" class="btn btn-light"><p style="color: white;">Solicita tu Demo</p></button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-services-wrap-card">
+                    <span>1</span>
+                    <h3>
+                        <a href="single-services.html">Adaptabilidad y Escalabilidad</a>
+                    </h3>
+                    <p>Facilita el crecimiento de la organización al escalar su capacidad y funcionalidades según sea necesario.</p>
+          
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-services-wrap-card">
+                    <span>2</span>
+                    <h3>
+                        <a href="single-services.html">Interfaz de Usuario Intuitiva</a>
+                    </h3>
+                    <p>Ofrece una interfaz fácil de usar, facilitando la adopción por parte del personal y mejora la eficiencia en el uso diario</p>
+                   
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="single-services-wrap-card">
+                    <span>3</span>
+                    <h3>
+                        <a href="single-services.html">Gestión Integral de Activos</a>
+                    </h3>
+                    <p>Permite la supervisión centralizada de todos los activos de la organización y facilita la toma de decisiones estratégicas para su mantenimiento.</p>
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="funfacts-style-wrap-inner-box-three ptb-110">
+            <div class="row justify-content-center">
+                <div class="col-6 col-lg-3 col-md-3 col-sm-4">
+                    <div class="single-funfacts">
+                        <div class="circlechart" data-percentage="60"></div>
+                        <span>Aumento</span>
+                        <h3>Eficiencia Operativa</h3>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3 col-md-3 col-sm-4">
+                    <div class="single-funfacts">
+                        <div class="circlechart" data-percentage="75"></div>
+                        <span>Optimización</span>
+                        <h3>De Inventarios</h3>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3 col-md-3 col-sm-4">
+                    <div class="single-funfacts">
+                        <div class="circlechart" data-percentage="30"></div>
+                        <span>Reducción</span>
+                        <h3>Tiempo Inactividad</h3>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3 col-md-3 col-sm-4 offset-lg-0 offset-md-0 offset-sm-4">
+                    <div class="single-funfacts">
+                        <div class="circlechart" data-percentage="35"></div>
+                        <span>Ahorro</span>
+                        <h3>Costos Reparación</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Services Wrap Area -->
+
+<!-- Start Testimonials Wrap Area -->
+<!--section class="testimonials-wrap-area ptb-110">
+    <div class="container">
+        <div class="testimonials-wrap-slides owl-carousel owl-theme">
+            <div class="single-testimonials-card">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+                <div class="client-info d-flex align-items-center justify-content-center">
+                    <img src="assets/img/author1.jpg" alt="image">
+
+                    <div class="title">
+                        <h3>John Doe</h3>
+                        <span>Marketing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-testimonials-card">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+                <div class="client-info d-flex align-items-center justify-content-center">
+                    <img src="assets/img/author2.jpg" alt="image">
+
+                    <div class="title">
+                        <h3>Steven Smith</h3>
+                        <span>Marketing</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-testimonials-card">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+                <div class="client-info d-flex align-items-center justify-content-center">
+                    <img src="assets/img/author3.jpg" alt="image">
+
+                    <div class="title">
+                        <h3>Sarah Taylor</h3>
+                        <span>Designer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="testimonials-wrap-map">
+        <img src="assets/img/it-services-home/map.png" alt="image">
+    </div>
+</section-->
+<!-- End Testimonials Wrap Area -->
+
+<!-- Start Projects Wrap Area -->
+<section class="about-area">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-6 col-md-12">
+                <div class="about-content" style="float: right;">
+                    <div class="content">
+                        <span>Innovación</span>
+                        <h2>Transforma tus procesos de mantenimiento con GMAO Valuekeep</h2>
+                        <p>Solución líder en gestión de mantenimiento asistido por ordenador diseñada para impulsar la eficiencia operativa y prolongar la vida útil de tus activos. </p>
+                        <button (click)="topScroll('#form')" class="btn btn-primary">Solicita tu Demo</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="about-image image-valuekeep">
+                    <img loading="lazy" src="assets/img/it-services-home/valuekeep-service.png" alt="image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End Projects Wrap Area -->
+
+<!-- Start Partner Area -->
+<div class="partner-area bg-with-gradient-color">
+    <div class="container">
+        <div class="partner-list justify-content-center">
+            <div class="partner-item justify-content-center">
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner1.png" alt="image"></a>
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner1.png" alt="image"></a>
+            </div>
+
+            <div class="partner-item">
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner2.png" alt="image"></a>
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner2.png" alt="image"></a>
+            </div>
+
+            <div class="partner-item">
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner3.png" alt="image"></a>
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner3.png" alt="image"></a>
+            </div>
+
+            <div class="partner-item">
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner4.png" alt="image"></a>
+                <a href="#" target="_blank"><img loading="lazy" src="assets/img/partner/partner4.png" alt="image"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Partner Area -->
+
+<!-- Start Team Wrap Area -->
+<section class="team-wrap-area pt-110 pb-80">
+    <div class="container">
+        <div class="section-title-style-two text-center" style="margin-bottom: 0px;">
+            <div class="content">
+                <span>Integraciones</span>
+                <h2>Conectividad Perfecta con Integraciones API</h2>
+            </div>
+
+            <div class="text">
+                <p>Valuekeep se integra sin esfuerzo con tus sistemas existentes a través de potentes interfaces API. Logra una sincronización fluida de datos entre plataformas, eliminando silos de información y mejorando la colaboración entre areas.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="single-team-card">
+                    <div class="team-image">
+                        <img loading="lazy" src="assets/img/it-services-home/integracion-vk.gif" alt="image">
+
+                    </div>
+                    <div class="team-content">
+                        <button (click)="topScroll('#form')" class="btn btn-primary">Solicita tu Demo</button>
+                        <div style="padding: 40px;">
+                            <h3>Integra con OptimuSystem</h3>
+                            <span>Gracias a nuestra colaboración entre Cegid Valuekeep y OptimuSystem, podemos ofrecerte una solución unificada a través de integraciones API sólidas ¡Contáctanos para Conocer más!</span>
+                            <div class="choose-wrap-content" style="padding: 0%;">
+                                <div class="choose-btn">
+                                    <img loading="lazy" alt="image" src="assets/img/it-services-home/cegid_partner.png" width="30%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Team Wrap Area -->
+
+<!-- Start Subscribe Wrap Area -->
+<div class="subscribe-wrap-area-three">
+    <div class="container">
+        <div class="subscribe-wrap-inner-box">
+            <h3>Mantén tus Operaciones sin Interrupciones, Incluso sin Conexión a Internet</h3>
+
+            <div class="newsletter-form" data-toggle="validator">
+                <div class="row justify-content-center" style="align-items: center;">
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <img loading="lazy" src="assets/img/it-services-home/mobile.png" alt="image">
+                    </div>
+                    <div class="about-content col-lg-6 col-md-6 col-sm-6">
+                     <div class="content" style="text-align: left;">
+                        <p style="color: white;">No te preocupes por interrupciones en tu flujo de trabajo; con 
+                            nuestro servicio, la continuidad es la clave.</p>
+                        <p style="color: white;font-family: 'Bold';">Sincronización Automática</p>
+                        <p style="color: white;font-family: 'Bold';">Compatibilidad Universal</p>
+                        <p style="color: white;font-family: 'Bold';">Trabajo Ininterrumpido</p>
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <button (click)="topScroll('#form')">Solicita tu Demo <i class="flaticon-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div id="validator-newsletter" class="form-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Subscribe Wrap Area -->
+
+<!-- Start Blog Wrap Area -->
+<!--div class="blog-wrap-area ptb-110">
+    <div class="container">
+        <div class="section-title-style-two text-center">
+            <div class="content">
+                <span>LATEST NEWS</span>
+                <h2>Our Latest Insights Are On Top All Times</h2>
+            </div>
+
+            <div class="text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ultrices gravida.</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-sm-6 p-0">
+                <div class="single-blog-item" style="background-image: url(assets/img/blog/blog1.jpg)">
+                    <div class="entry-post-content">
+                        <div class="entry-meta">
+                            <ul>
+                                <li><a href="#">Admin</a></li>
+                                <li>August 15, 2022</li>
+                            </ul>
+                        </div>
+
+                        <h3><a href="#">Making Peace With The Feast Or Famine Of Freelancing</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod...</p>
+                        <a href="#" class="read-more-btn">Read More <i class="flaticon-add-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6 p-0">
+                <div class="single-blog-item active" style="background-image: url(assets/img/blog/blog2.jpg)">
+                    <div class="entry-post-content">
+                        <div class="entry-meta">
+                            <ul>
+                                <li><a href="#">Admin</a></li>
+                                <li>August 15, 2022</li>
+                            </ul>
+                        </div>
+
+                        <h3><a href="#">I Used The Web For A Day On A 50 MB Budget</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod...</p>
+                        <a href="#" class="read-more-btn">Read More <i class="flaticon-add-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-6 p-0">
+                <div class="single-blog-item" style="background-image: url(assets/img/blog/blog3.jpg)">
+                    <div class="entry-post-content">
+                        <div class="entry-meta">
+                            <ul>
+                                <li><a href="#">Admin</a></li>
+                                <li>August 15, 2022</li>
+                            </ul>
+                        </div>
+
+                        <h3><a href="#">Here are the 5 most telling signs of Micromanagement</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod...</p>
+                        <a href="#" class="read-more-btn">Read More <i class="flaticon-add-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+                <div class="blog-view-more-btn">
+                    <a href="blog-1.html" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div-->
+<!-- End Blog Wrap Area -->
+
+<!-- Start FAQ Area -->
+<section class="faq-wrap-area ptb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 p-4">
+                <div class="faq-content">
+                    <div class="section-title">
+                        <div class="content">
+                            <span>Preguntas Frecuentes</span>
+                            <h2>Descubre Más sobre el Software GMAO Valuekeep</h2>
+                            <p> Aquí encontrarás respuestas a las consultas más comunes sobre nuestra plataforma y cómo puede beneficiar a tu empresa en la gestión de mantenimiento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-image">
+                        <img loading="lazy" src="assets/img/faq.png" alt="image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-12 p-4">
+                <div class="faq-accordion">
+                    <ul class="accordion">
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">
+                                <i class="fas fa-plus"></i>
+                                ¿Cómo ayuda Valuekeep en la implementación de mantenimiento preventivo?
+                            </div>
+                            <p class="accordion-content show">Valuekeep facilita la implementación de programas de mantenimiento preventivo basados en datos, reduciendo el riesgo de fallos inesperados y optimizando la vida útil de los activos.</p>
+                        </li>
+
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">
+                                <i class="fas fa-plus"></i>
+                                ¿Cuáles son las principales características de Valuekeep en la gestión de activos?
+                            </div>
+                            <p class="accordion-content">Valuekeep permite la supervisión, programación y optimización eficiente del rendimiento de los activos, brindando una visión completa y detallada.</p>
+                        </li>
+
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">
+                                <i class="fas fa-plus"></i>
+                                ¿Cómo se optimizan las órdenes de trabajo con Valuekeep?
+                            </div>
+                            <p class="accordion-content">Valuekeep facilita la creación y asignación eficiente de órdenes de trabajo, mejorando la comunicación y ejecución de tareas de mantenimiento de manera efectiva.</p>
+                        </li>
+
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">                                <i class="fas fa-plus"></i>
+                                ¿Valuekeep ofrece funcionalidades de conectividad con otras plataformas?
+                            </div>
+                            <p class="accordion-content">Sí, Valuekeep destaca por su capacidad de integración mediante robustas interfaces API, permitiendo una conexión sin problemas con otros sistemas y plataformas.</p>
+                        </li>
+
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">
+                                <i class="fas fa-plus"></i>
+                                ¿Valuekeep es compatible con entornos sin conexión a Internet?
+                            </div>
+                            <p class="accordion-content">Sí, Valuekeep ofrece funcionalidades para trabajar sin conexión, asegurando la continuidad de las operaciones incluso en entornos con conectividad intermitente.</p>
+                        </li>
+
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">
+                                <i class="fas fa-plus"></i>
+                                ¿Cómo puedo personalizar Valuekeep según las necesidades específicas de mi empresa?
+                            </div>
+                            <p class="accordion-content">Valuekeep es altamente personalizable para adaptarse a las necesidades únicas de tu empresa, desde configuraciones específicas hasta la integración con sistemas existentes.</p>
+                        </li>
+
+                        <li class="accordion-item">
+                            <div style="cursor: pointer;" class="accordion-title active">
+                                <i class="fas fa-plus"></i>
+                                ¿Cómo puedo obtener soporte técnico y capacitación para el uso eficiente de Valuekeep?
+                            </div>
+                            <p class="accordion-content">Ofrecemos capacitación integral para usuarios y soporte técnico continuo, asegurando un uso eficiente y resolviendo cualquier pregunta o problema que pueda surgir.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--div class="faq-contact">
+            <div class="section-title">
+                <div class="content">
+                    <span>Message Us</span>
+                    <h2>Do You Have Any Questions</h2>
+                </div>
+            </div>
+
+            <div class="faq-contact-form">
+                <form id="contactForm">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group mb-3">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group mb-3">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group mb-3">
+                                <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group mb-3">
+                                <input type="text" name="msg_subject" id="msg_subject" class="form-control" placeholder="Subject">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group mb-3">
+                                <textarea name="message" class="form-control" id="message" cols="30" rows="5" placeholder="Your Message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div-->
+    </div>
+</section>
+<!-- End FAQ Area -->

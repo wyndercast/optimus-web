@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Registro completo al Webinar</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+    <div class="modal-body">
+    <p>¡Gracias por registrarte para nuestro próximo webinar sobre Software 
+        de Mantenimiento! Estamos encantados de contar con tu participación.</p>
+    <div>
+        <h4>Fecha: Viernes 02 de May. 2024</h4>
+        <h4>Hora: 16:00 hs</h4>
+        <h4>Duración: 2 hs</h4>
+    </div>
+    <p>Durante este evento, exploraremos de manera detallada cómo el software de mantenimiento puede revolucionar la gestión de activos y optimizar los procesos de mantenimiento en tu empresa.
+    </p>
+    <p>Prepárate para aprender sobre las últimas tendencias, estrategias efectivas y casos de estudio inspiradores que te ayudarán a maximizar la eficiencia de tus operaciones.
+    </p>
+    <p>Te enviaremos un recordatorio cercano a la fecha del webinar, junto con el enlace de acceso y cualquier información adicional que necesites.
+    </p>
+    <add-to-calendar-button
+                name="Taller en línea: Aprende a como mejorar la rentabilidad tus activos con el apoyo de un GMAO"
+                options="'Apple','Google','iCal','Outlook.com','Microsoft 365','Microsoft Teams','Yahoo'"
+                location="Online"
+                label="Agregar evento a tu calendario"
+                startDate="2024-04-26"
+                endDate="2024-04-26"
+                startTime="16:00"
+                endTime="18:00"
+                description="Acceso al Webinar:[url]https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2Q4M2VmYTktYWI3MC00MTUyLThmYzctNmE2ODcyODVkZGFl%40thread.v2/0?context=%7b%22Tid%22%3a%22604e5547-f49c-4481-8476-c14f22fd79cb%22%2c%22Oid%22%3a%2210908ebf-f1fb-4e16-be33-aa2082ca768d%22%7d|URL Text[/url]"
+                timeZone="currentBrowser"
+                organizer="Wynder Castiblanco|contacto@optimusystemsolutions.com"
+    ></add-to-calendar-button>
+    <p>¡Gracias por unirte a nosotros en esta emocionante sesión educativa!</p>
+    <p>Atentamente,</p>
+    <p>Wynder Castiblanco/OptimuSystem</p>
+    </div>
+    
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
+      Cerrar
+    </button>
+  </div>
