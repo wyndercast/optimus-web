@@ -1,6 +1,5 @@
 import { Country } from '@angular-material-extensions/select-country';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { IConfig, NgxCountriesDropdownModule } from 'ngx-countries-dropdown';
 import { CrmOptimusService } from '../../dao/crm-optimus.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Lead } from '../../model/lead.model';
@@ -20,14 +19,6 @@ declare var google: any;
 })
 export class HomeThreeComponent implements OnInit {
 
-  selectedCountryConfig: IConfig = {
-    hideCode: true,
-    hideName: true
-  };
-  countryListConfig: IConfig = {
-    hideCode: true,
-    
-  };
   
   allowedCountryCodes: string[] = ['co', 'py', 'ur', 'mx', 'es','cl', 'ar', 'ec', 'pe','uy'];
   submitted = false;

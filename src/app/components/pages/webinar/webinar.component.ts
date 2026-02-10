@@ -3,7 +3,6 @@ import { ModalComponent } from '../../modal/modal.component';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CrmOptimusService } from '../../dao/crm-optimus.service';
 import { MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { IConfig } from 'ngx-countries-dropdown';
 import { Lead } from '../../model/lead.model';
 import { ModalWebinarComponent } from '../../modal-webinar/modal-webinar.component';
 
@@ -20,14 +19,6 @@ declare var google: any;
 
 export class WebinarComponent implements OnInit{
 
-  selectedCountryConfig: IConfig = {
-    hideCode: true,
-    hideName: true
-  };
-  countryListConfig: IConfig = {
-    hideCode: true,
-    
-  };
   
   allowedCountryCodes: string[] = ['co', 'py', 'ur', 'mx', 'es','cl', 'ar', 'ec', 'pe','uy'];
   submitted = false;
