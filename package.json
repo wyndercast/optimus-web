@@ -25,7 +25,6 @@
     "@angular/router": "^17.0.7",
     "@angular/ssr": "^17.0.10",
     "@fortawesome/fontawesome-free": "^6.5.1",
-    "@jefiozie/ngx-aws-deploy": "^5.1.0",
     "@nguniversal/express-engine": "^16.2.0",
     "add-to-calendar-button": "^2.6.12",
     "animate.css": "^4.1.1",
